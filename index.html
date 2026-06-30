@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bonzai — Private family banking that grows branch by branch</title>
-<meta name="description" content="One Root account issues vendor- and limit-controlled cards to every branch of the family — while Bonzai's AI watches each leaf of spend and tells you what to prune.">
-<meta property="og:title" content="Bonzai — Private family banking">
-<meta property="og:description" content="Family money that grows branch by branch. One Root account, controlled cards for every branch, and an AI that watches each leaf of spend.">
+<title>Bonzai — Spend wisely, control confidently</title>
+<meta name="description" content="One Root account, total control over every card it issues — real limits enforced in real time, with the AI insight to see exactly where your money goes. Financial control for businesses and households.">
+<meta property="og:title" content="Bonzai — Financial control for businesses & households">
+<meta property="og:description" content="One Root account issues limit- and vendor-controlled cards to every branch, while Bonzai's AI watches each leaf of spend and tells you what to prune.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Gilda+Display&family=Libre+Caslon+Display&family=Marcellus&family=Pinyon+Script&family=Spectral:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Gilda+Display&family=Libre+Caslon+Display&family=Marcellus&family=Pinyon+Script&family=Poppins:wght@300;400&family=Spectral:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -23,6 +23,17 @@ body{margin:0;}
 @keyframes bzpulse{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.5);opacity:.05}}
 @keyframes bzdrift{0%,100%{transform:translate(0,0)}50%{transform:translate(0,-8px)}}
 @keyframes bzsheen{0%{background-position:-180% 0}60%,100%{background-position:180% 0}}
+/* nav: below the breakpoint, swap the inline links for a hamburger menu;
+   the logo and the Join-the-waitlist CTA stay in the bar at all sizes. */
+.bz-burger{display:none;}
+.bz-menu{display:none;}
+.bz-menu.is-open{display:flex;}
+.bz-menu a:hover{background:rgba(23,138,79,0.08);}
+@media (max-width:980px){
+  /* !important so it overrides the element's inline display:flex */
+  .bz-links{display:none !important;}
+  .bz-burger{display:inline-flex !important;}
+}
 </style>
 </head>
 <body>
@@ -31,21 +42,33 @@ body{margin:0;}
 
 <!-- ===================== NAV ===================== -->
 <header style="position:sticky;top:0;z-index:50;backdrop-filter:saturate(140%) blur(14px);background:rgba(230,233,228,0.78);border-bottom:1px solid rgba(15,30,22,0.07);">
-  <div style="max-width:1180px;margin:0 auto;padding:14px clamp(20px,5vw,56px);display:flex;align-items:center;justify-content:space-between;gap:20px;">
-    <a href="#top" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;">
+  <div id="bz-nav" class="bz-nav" style="max-width:1180px;margin:0 auto;padding:14px clamp(20px,5vw,56px);display:flex;align-items:center;justify-content:space-between;gap:20px;position:relative;">
+    <a href="#top" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;flex:none;">
       <div style="width:34px;height:34px;border-radius:9px;background:linear-gradient(140deg,#178A4F 0%,#7fbf7e 42%,#E3C26B 72%,#B58B36 100%);display:flex;align-items:center;justify-content:center;flex:none;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 22V11" stroke="#0c1a13" stroke-width="2.4" stroke-linecap="round"/><path d="M12 13C9 13 6.5 11 6 8" stroke="#0c1a13" stroke-width="2.4" stroke-linecap="round"/><path d="M12 11C15 11 17.5 8.5 18 5.5" stroke="#0c1a13" stroke-width="2.4" stroke-linecap="round"/><circle cx="5" cy="7" r="2" fill="#0c1a13"/><circle cx="19" cy="4.5" r="2" fill="#0c1a13"/><circle cx="12" cy="22" r="2" fill="#0c1a13"/></svg>
+        <img src="uploads/logo_dark.png" alt="Bonzai" style="width:23px;height:auto;display:block;">
       </div>
-      <span style="font-weight:600;font-size:19px;letter-spacing:-0.01em;">Bonzai</span>
+      <span style="font-family:'Poppins',sans-serif;font-weight:300;font-size:19px;text-transform:lowercase;letter-spacing:0.25em;">Bonzai</span>
     </a>
-    <nav style="display:flex;align-items:center;gap:30px;font-size:14px;color:#3c463f;flex-wrap:wrap;justify-content:center;">
+    <nav class="bz-links" style="display:flex;align-items:center;gap:28px;font-size:14px;color:#3c463f;white-space:nowrap;flex:none;">
       <a href="#how" style="text-decoration:none;color:inherit;">How it works</a>
       <a href="#ai" style="text-decoration:none;color:inherit;">AI Insights</a>
       <a href="#features" style="text-decoration:none;color:inherit;">Features</a>
       <a href="#security" style="text-decoration:none;color:inherit;">Security</a>
+      <a href="#about" style="text-decoration:none;color:inherit;">About Us</a>
       <a href="#faq" style="text-decoration:none;color:inherit;">FAQ</a>
     </nav>
-    <a href="#waitlist" style="text-decoration:none;background:#178A4F;color:#fff;font-size:14px;font-weight:600;padding:10px 18px;border-radius:12px;white-space:nowrap;box-shadow:0 8px 22px rgba(23,138,79,0.26);">Join the waitlist</a>
+    <button class="bz-burger" id="bz-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="bz-menu" style="align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;border:1px solid rgba(15,30,22,0.14);background:#fff;cursor:pointer;flex:none;padding:0;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="#13211a" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <a href="#waitlist" class="bz-cta" style="text-decoration:none;background:#178A4F;color:#fff;font-size:14px;font-weight:600;padding:10px 18px;border-radius:12px;white-space:nowrap;box-shadow:0 8px 22px rgba(23,138,79,0.26);flex:none;">Join the waitlist</a>
+    <div class="bz-menu" id="bz-menu" style="position:absolute;top:calc(100% + 8px);left:clamp(20px,5vw,56px);right:clamp(20px,5vw,56px);flex-direction:column;gap:4px;background:rgba(244,246,242,0.98);backdrop-filter:saturate(140%) blur(14px);border:1px solid rgba(15,30,22,0.1);border-radius:16px;padding:12px;box-shadow:0 24px 50px rgba(20,40,28,0.18);">
+      <a href="#how" style="text-decoration:none;color:#13211a;font-size:15px;font-weight:500;padding:11px 14px;border-radius:10px;transition:background .15s;">How it works</a>
+      <a href="#ai" style="text-decoration:none;color:#13211a;font-size:15px;font-weight:500;padding:11px 14px;border-radius:10px;transition:background .15s;">AI Insights</a>
+      <a href="#features" style="text-decoration:none;color:#13211a;font-size:15px;font-weight:500;padding:11px 14px;border-radius:10px;transition:background .15s;">Features</a>
+      <a href="#security" style="text-decoration:none;color:#13211a;font-size:15px;font-weight:500;padding:11px 14px;border-radius:10px;transition:background .15s;">Security</a>
+      <a href="#about" style="text-decoration:none;color:#13211a;font-size:15px;font-weight:500;padding:11px 14px;border-radius:10px;transition:background .15s;">About Us</a>
+      <a href="#faq" style="text-decoration:none;color:#13211a;font-size:15px;font-weight:500;padding:11px 14px;border-radius:10px;transition:background .15s;">FAQ</a>
+    </div>
   </div>
 </header>
 
@@ -53,18 +76,12 @@ body{margin:0;}
 
 <!-- ===================== HERO: EDITORIAL ===================== -->
 <section style="position:relative;overflow:hidden;">
-  <svg viewBox="0 0 600 600" style="position:absolute;right:-60px;top:-40px;width:min(620px,52vw);opacity:0.07;pointer-events:none;" fill="none" aria-hidden="true">
-    <path d="M300 600 V330" stroke="#178A4F" stroke-width="9" stroke-linecap="round"/>
-    <path d="M300 380 C 220 350 150 320 90 250" stroke="#178A4F" stroke-width="8" stroke-linecap="round"/>
-    <path d="M300 330 C 380 300 460 250 520 170" stroke="#178A4F" stroke-width="8" stroke-linecap="round"/>
-    <path d="M300 300 C 260 230 230 170 230 90" stroke="#178A4F" stroke-width="8" stroke-linecap="round"/>
-    <circle cx="90" cy="250" r="22" fill="#178A4F"/><circle cx="520" cy="170" r="22" fill="#E3C26B"/><circle cx="230" cy="90" r="22" fill="#178A4F"/>
-  </svg>
+  <img src="uploads/logo_green.png" alt="" aria-hidden="true" style="position:absolute;right:-40px;top:20px;width:min(540px,46vw);height:auto;opacity:0.06;pointer-events:none;">
   <div style="max-width:1180px;margin:0 auto;padding:clamp(48px,8vw,104px) clamp(20px,5vw,56px) clamp(40px,6vw,80px);display:flex;flex-wrap:wrap;align-items:center;gap:clamp(36px,5vw,72px);position:relative;">
     <div data-reveal style="flex:1 1 440px;min-width:300px;">
-      <div style="font-family:ui-monospace,monospace;font-size:12px;letter-spacing:0.2em;color:#9C7A2B;text-transform:uppercase;margin-bottom:22px;">Private family banking</div>
-      <h1 style="font-family:'Libre Caslon Display',serif;font-weight:400;font-size:clamp(40px,5.6vw,70px);line-height:1.02;letter-spacing:-0.01em;margin:0 0 22px;">Family money that grows <span style="font-family:'Pinyon Script',cursive;color:#1c7048;font-size:1.12em;">branch</span> by branch.</h1>
-      <p style="font-size:clamp(16px,1.4vw,19px);line-height:1.6;color:#3c463f;max-width:520px;margin:0 0 30px;text-wrap:pretty;">One Root account issues vendor- and limit-controlled cards to every branch of the family — while Bonzai's AI watches each leaf of spend and tells you what to prune.</p>
+      <div style="font-family:ui-monospace,monospace;font-size:12px;letter-spacing:0.2em;color:#9C7A2B;text-transform:uppercase;margin-bottom:22px;">Financial Control for Businesses &amp; Households.</div>
+      <h1 style="font-family:'Libre Caslon Display',serif;font-weight:400;font-size:clamp(40px,5.6vw,70px);line-height:1.02;letter-spacing:-0.01em;margin:0 0 22px;">Spend <span style="color:#1c7048;">wisely</span>, control <span style="color:#1c7048;">confidently</span>.</h1>
+      <p style="font-size:clamp(16px,1.4vw,19px);line-height:1.6;color:#3c463f;max-width:520px;margin:0 0 30px;text-wrap:pretty;">One root account, total control over every card it issues.<br>Real limits, enforced in real time, with the AI insight to see exactly where your money goes.</p>
       <div style="display:flex;flex-wrap:wrap;gap:13px;align-items:center;">
         <a href="#waitlist" style="text-decoration:none;background:#178A4F;color:#fff;font-size:15.5px;font-weight:600;padding:15px 26px;border-radius:14px;box-shadow:0 14px 30px rgba(23,138,79,0.28);">Join the waitlist</a>
         <a href="#how" style="text-decoration:none;background:#fff;color:#13211a;font-size:15.5px;font-weight:600;padding:15px 24px;border-radius:14px;border:1px solid rgba(15,30,22,0.14);">See how it works ›</a>
@@ -75,7 +92,7 @@ body{margin:0;}
           <div style="width:30px;height:30px;border-radius:50%;border:2px solid #e6e9e4;background:linear-gradient(140deg,#7fd1a3,#178A4F);margin-left:-10px;"></div>
           <div style="width:30px;height:30px;border-radius:50%;border:2px solid #e6e9e4;background:linear-gradient(140deg,#9bb0a4,#16261c);margin-left:-10px;"></div>
         </div>
-        <span style="font-size:13.5px;color:#69736c;"><b data-counter data-count-to="4200" style="color:#13211a;font-weight:600;">4,200</b> families on the early-access list</span>
+        <span style="font-size:13.5px;color:#69736c;"><b data-counter data-count-to="4200" style="color:#13211a;font-weight:600;">4,200</b> members on the early-access list</span>
       </div>
     </div>
 
@@ -121,14 +138,24 @@ body{margin:0;}
             </div>
           </div>
         </div>
-        <!-- floating cards -->
-        <div style="position:absolute;left:-58px;top:96px;background:linear-gradient(140deg,#16261c,#10201a);color:#eef2ed;border:1px solid rgba(227,194,107,0.3);border-radius:14px;padding:12px 14px;box-shadow:0 18px 40px rgba(20,40,28,0.3);width:188px;animation:bzfloat2 6s ease-in-out infinite;">
-          <div style="display:flex;align-items:center;gap:7px;font-family:ui-monospace,monospace;font-size:9.5px;letter-spacing:0.1em;color:#E3C26B;text-transform:uppercase;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 3l1.6 4.8L18 9.4l-4.4 1.6L12 16l-1.6-5L6 9.4l4.4-1.6L12 3z" fill="#E3C26B"/></svg>AI Insight</div>
-          <div style="font-size:12.5px;line-height:1.4;margin-top:6px;">Noah is near his weekly cap — review before Friday.</div>
+        <!-- floating AI insight cards -->
+        <div style="position:absolute;left:-110px;top:112px;width:152px;animation:bzfloat2 6s ease-in-out infinite;">
+          <div style="background:#fff;border:1px solid rgba(15,30,22,0.06);border-radius:13px;padding:13px 13px 12px;box-shadow:0 16px 36px rgba(20,40,28,0.16);">
+            <div style="display:flex;align-items:center;gap:7px;margin-bottom:8px;">
+              <div style="width:21px;height:21px;border-radius:7px;background:rgba(194,104,59,0.12);display:flex;align-items:center;justify-content:center;flex:none;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 4l9 16H3L12 4z" stroke="#C2683B" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v4" stroke="#C2683B" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17.3" r="1.1" fill="#C2683B"/></svg></div>
+              <span style="font-family:ui-monospace,monospace;font-size:8px;letter-spacing:0.16em;color:#C2683B;text-transform:uppercase;font-weight:600;">Heads up</span>
+            </div>
+            <div style="font-size:11px;font-weight:700;line-height:1.3;color:#13211a;">Noah is at 84% of his usual spending.</div>
+          </div>
         </div>
-        <div style="position:absolute;right:-44px;top:288px;background:#fff;border:1px solid rgba(15,30,22,0.08);border-radius:14px;padding:11px 14px;box-shadow:0 18px 40px rgba(20,40,28,0.16);animation:bzdrift 5.5s ease-in-out infinite;">
-          <div style="font-size:11px;color:#69736c;">Saved this month</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#178A4F;line-height:1.05;">QR 1,240</div>
+        <div style="position:absolute;right:-125px;bottom:100px;width:152px;animation:bzdrift 5.5s ease-in-out infinite;">
+          <div style="background:#fff;border:1px solid rgba(15,30,22,0.06);border-radius:13px;padding:13px 13px 12px;box-shadow:0 16px 36px rgba(20,40,28,0.16);">
+            <div style="display:flex;align-items:center;gap:7px;margin-bottom:8px;">
+              <div style="width:21px;height:21px;border-radius:7px;background:rgba(23,138,79,0.12);display:flex;align-items:center;justify-content:center;flex:none;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 15l4-4 3 3 6-7" stroke="#178A4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 7h4v4" stroke="#178A4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <span style="font-family:ui-monospace,monospace;font-size:8px;letter-spacing:0.16em;color:#178A4F;text-transform:uppercase;font-weight:600;">Trend</span>
+            </div>
+            <div style="font-size:11px;font-weight:700;line-height:1.3;color:#13211a;">Leaf dining dropped 22%, as usual.</div>
+          </div>
         </div>
       </div>
     </div>
@@ -138,22 +165,18 @@ body{margin:0;}
 <!-- ===================== STAT / PROOF BAND ===================== -->
 <section style="border-top:1px solid rgba(15,30,22,0.07);border-bottom:1px solid rgba(15,30,22,0.07);background:rgba(255,255,255,0.4);">
   <div style="max-width:1180px;margin:0 auto;padding:clamp(34px,4vw,52px) clamp(20px,5vw,56px);">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:30px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;">
       <div data-reveal style="text-align:center;">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(38px,4vw,52px);font-weight:600;line-height:1;color:#13211a;"><span data-counter data-count-to="4200">4,200</span></div>
-        <div style="font-family:ui-monospace,monospace;font-size:11px;letter-spacing:0.12em;color:#69736c;text-transform:uppercase;margin-top:8px;">families on the waitlist</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(38px,4vw,52px);font-weight:600;line-height:1;color:#13211a;">QR<span data-counter data-count-to="25">25</span>B</div>
+        <div style="font-family:ui-monospace,monospace;font-size:11px;letter-spacing:0.12em;color:#69736c;text-transform:uppercase;margin-top:8px;">per annum in unauthorized payments</div>
       </div>
       <div data-reveal data-reveal-delay="80" style="text-align:center;">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(38px,4vw,52px);font-weight:600;line-height:1;color:#13211a;"><span data-counter data-count-to="12">12</span></div>
-        <div style="font-family:ui-monospace,monospace;font-size:11px;letter-spacing:0.12em;color:#69736c;text-transform:uppercase;margin-top:8px;">GCC markets at launch</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(38px,4vw,52px);font-weight:600;line-height:1;color:#13211a;">$<span data-counter data-count-to="200">200</span>B</div>
+        <div style="font-family:ui-monospace,monospace;font-size:11px;letter-spacing:0.12em;color:#69736c;text-transform:uppercase;margin-top:8px;">per annum wasted in the GCC</div>
       </div>
       <div data-reveal data-reveal-delay="160" style="text-align:center;">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(38px,4vw,52px);font-weight:600;line-height:1;color:#13211a;"><span data-counter data-count-to="60">60</span>s</div>
-        <div style="font-family:ui-monospace,monospace;font-size:11px;letter-spacing:0.12em;color:#69736c;text-transform:uppercase;margin-top:8px;">to issue a branch card</div>
-      </div>
-      <div data-reveal data-reveal-delay="240" style="text-align:center;">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(38px,4vw,52px);font-weight:600;line-height:1;color:#13211a;">Zero</div>
-        <div style="font-family:ui-monospace,monospace;font-size:11px;letter-spacing:0.12em;color:#69736c;text-transform:uppercase;margin-top:8px;">credentials stored by us</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(38px,4vw,52px);font-weight:600;line-height:1;color:#178A4F;">Zero</div>
+        <div style="font-family:ui-monospace,monospace;font-size:11px;letter-spacing:0.12em;color:#69736c;text-transform:uppercase;margin-top:8px;">solutions to the problem</div>
       </div>
     </div>
   </div>
@@ -161,30 +184,36 @@ body{margin:0;}
 
 <!-- ===================== HOW IT WORKS ===================== -->
 <section id="how" style="scroll-margin-top:80px;">
-  <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,108px) clamp(20px,5vw,56px);">
+  <div style="max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,108px) clamp(20px,3vw,30px);">
     <div data-reveal style="text-align:center;max-width:640px;margin:0 auto clamp(40px,5vw,64px);">
       <div style="font-family:ui-monospace,monospace;font-size:12px;letter-spacing:0.2em;color:#9C7A2B;text-transform:uppercase;margin-bottom:16px;">How it works</div>
-      <h2 style="font-family:'Marcellus',serif;font-weight:400;font-size:clamp(30px,3.6vw,46px);line-height:1.08;margin:0 0 14px;">Root, branch, leaf — one living tree of family money.</h2>
-      <p style="font-size:17px;line-height:1.6;color:#3c463f;margin:0;text-wrap:pretty;">Plant a Root, graft a branch for each person, and let every leaf of spend stay in view.</p>
+      <h2 style="font-family:'Marcellus',serif;font-weight:400;font-size:clamp(30px,3.6vw,46px);line-height:1.08;margin:0 0 14px;">One account in, controlled cards out: every limit enforced.</h2>
+      <p style="font-size:17px;line-height:1.6;color:#3c463f;margin:0;text-wrap:pretty;">Fund a single Root account, issue a card to everyone who spends for you, and set hard limits we enforce the moment a card is tapped.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;">
       <div data-reveal data-reveal-delay="0" style="background:#fff;border:1px solid rgba(15,30,22,0.08);border-radius:20px;padding:30px 28px;position:relative;overflow:hidden;">
         <div style="position:absolute;right:18px;top:14px;font-family:'Cormorant Garamond',serif;font-size:64px;color:rgba(23,138,79,0.18);line-height:1;">01</div>
         <div style="width:52px;height:52px;border-radius:15px;background:linear-gradient(140deg,#178A4F,#0f6b3f);display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 21V9" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M12 13c-3 0-5-2-5.5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M12 11c3 0 5-2 5.5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="6" cy="7" r="1.8" fill="#fff"/><circle cx="18" cy="5.5" r="1.8" fill="#fff"/></svg></div>
         <div style="font-family:'Marcellus',serif;font-size:21px;margin-bottom:10px;">Plant your Root</div>
-        <div style="font-size:14.5px;line-height:1.6;color:#3c463f;text-wrap:pretty;">Open a Root account and link your bank in under a minute. This is the trunk all family money grows from.</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#3c463f;text-wrap:pretty;">Link your bank account and have all your issued cards draw from your Root, with your limits. All card activities monitored in one dashboard, always.</div>
       </div>
       <div data-reveal data-reveal-delay="90" style="background:#fff;border:1px solid rgba(15,30,22,0.08);border-radius:20px;padding:30px 28px;position:relative;overflow:hidden;">
         <div style="position:absolute;right:18px;top:14px;font-family:'Cormorant Garamond',serif;font-size:64px;color:rgba(23,138,79,0.18);line-height:1;">02</div>
         <div style="width:52px;height:52px;border-radius:15px;background:linear-gradient(140deg,#178A4F,#0f6b3f);display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2.5" stroke="#fff" stroke-width="2"/><path d="M3 10h18" stroke="#fff" stroke-width="2"/></svg></div>
-        <div style="font-family:'Marcellus',serif;font-size:21px;margin-bottom:10px;">Graft a Branch</div>
-        <div style="font-size:14.5px;line-height:1.6;color:#3c463f;text-wrap:pretty;">Issue a controlled virtual card to a child or family member — set a weekly limit and choose exactly which vendors it can reach.</div>
+        <div style="font-family:'Marcellus',serif;font-size:21px;margin-bottom:10px;">Their card, your rules</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#3c463f;text-wrap:pretty;">Create a controlled, digital card for any employee, family member, or dependent. Set how much they can spend, and where — in seconds.</div>
       </div>
       <div data-reveal data-reveal-delay="180" style="background:#fff;border:1px solid rgba(15,30,22,0.08);border-radius:20px;padding:30px 28px;position:relative;overflow:hidden;">
         <div style="position:absolute;right:18px;top:14px;font-family:'Cormorant Garamond',serif;font-size:64px;color:rgba(23,138,79,0.18);line-height:1;">03</div>
+        <div style="width:52px;height:52px;border-radius:15px;background:linear-gradient(140deg,#178A4F,#0f6b3f);display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M9 8h6M9 12h6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <div style="font-family:'Marcellus',serif;font-size:21px;margin-bottom:10px;">Transactions &amp; OCR</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#3c463f;text-wrap:pretty;">Instant transactions and real-time payment authorization. Followed up with AI-assisted OCR for receipt-transaction cross-validation.</div>
+      </div>
+      <div data-reveal data-reveal-delay="270" style="background:#fff;border:1px solid rgba(15,30,22,0.08);border-radius:20px;padding:30px 28px;position:relative;overflow:hidden;">
+        <div style="position:absolute;right:18px;top:14px;font-family:'Cormorant Garamond',serif;font-size:64px;color:rgba(23,138,79,0.18);line-height:1;">04</div>
         <div style="width:52px;height:52px;border-radius:15px;background:linear-gradient(140deg,#178A4F,#0f6b3f);display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 16l5-5 3 3 7-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 7h5v5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div style="font-family:'Marcellus',serif;font-size:21px;margin-bottom:10px;">Watch it grow</div>
-        <div style="font-size:14.5px;line-height:1.6;color:#3c463f;text-wrap:pretty;">AI tracks every leaf of spend, flags what needs pruning, and shows one balance line that turns gold, terracotta, or green.</div>
+        <div style="font-family:'Marcellus',serif;font-size:21px;margin-bottom:10px;">Personalized AI insights</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#3c463f;text-wrap:pretty;">AI-powered reports to identify spending patterns and potential areas for savings. All for you to hit your financial goals.</div>
       </div>
     </div>
   </div>
@@ -198,15 +227,15 @@ body{margin:0;}
       <div data-reveal style="flex:1 1 380px;min-width:300px;">
         <div style="display:inline-flex;align-items:center;gap:8px;font-family:ui-monospace,monospace;font-size:11px;letter-spacing:0.16em;color:#E3C26B;text-transform:uppercase;background:rgba(227,194,107,0.1);border:1px solid rgba(227,194,107,0.28);padding:6px 12px;border-radius:20px;margin-bottom:22px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 3l1.6 4.8L18 9.4l-4.4 1.6L12 16l-1.6-5L6 9.4l4.4-1.6L12 3z" fill="#E3C26B"/></svg>AI Insights · new</div>
         <h2 style="font-family:'Marcellus',serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.08;margin:0 0 18px;color:#fbfdf8;">One line that tells the whole story.</h2>
-        <p style="font-size:17px;line-height:1.65;color:#c2cec6;margin:0 0 24px;text-wrap:pretty;">Bonzai's balance line bends gold as a branch drifts toward its limit, terracotta as it nears zero, and deepens green as money grows back. You see trouble a week before it lands.</p>
+        <p style="font-size:17px;line-height:1.65;color:#c2cec6;margin:0 0 24px;text-wrap:pretty;">Bonzai's balance line bends gold as a Leaf drifts toward its limit, terracotta as it nears zero, and deepens green as money grows back. You see trouble a week before it lands.</p>
         <div style="display:flex;flex-direction:column;gap:14px;">
-          <div style="display:flex;gap:12px;align-items:flex-start;"><div style="width:10px;height:10px;border-radius:50%;background:#E3C26B;margin-top:5px;flex:none;"></div><div><b style="color:#fbfdf8;">Caution, early.</b> <span style="color:#a9b6ad;">The line turns gold the moment a leaf is trending over.</span></div></div>
-          <div style="display:flex;gap:12px;align-items:flex-start;"><div style="width:10px;height:10px;border-radius:50%;background:#C2683B;margin-top:5px;flex:none;"></div><div><b style="color:#fbfdf8;">Near zero, flagged.</b> <span style="color:#a9b6ad;">Terracotta means a branch is about to run dry.</span></div></div>
-          <div style="display:flex;gap:12px;align-items:flex-start;"><div style="width:10px;height:10px;border-radius:50%;background:#7fd1a3;margin-top:5px;flex:none;"></div><div><b style="color:#fbfdf8;">Growth, rewarded.</b> <span style="color:#a9b6ad;">Deepening green as savings climb above the baseline.</span></div></div>
+          <div style="display:flex;gap:12px;align-items:flex-start;"><div style="width:10px;height:10px;border-radius:50%;background:#E3C26B;margin-top:5px;flex:none;"></div><div><b style="color:#fbfdf8;">Caution, early.</b> <span style="color:#a9b6ad;">Gold as soon as a Leaf is trending over.</span></div></div>
+          <div style="display:flex;gap:12px;align-items:flex-start;"><div style="width:10px;height:10px;border-radius:50%;background:#C2683B;margin-top:5px;flex:none;"></div><div><b style="color:#fbfdf8;">Near zero, flagged.</b> <span style="color:#a9b6ad;">Terracotta means a Leaf is running dry.</span></div></div>
+          <div style="display:flex;gap:12px;align-items:flex-start;"><div style="width:10px;height:10px;border-radius:50%;background:#7fd1a3;margin-top:5px;flex:none;"></div><div><b style="color:#fbfdf8;">Growth, rewarded.</b> <span style="color:#a9b6ad;">Deepening green as savings climb back.</span></div></div>
         </div>
       </div>
       <div data-reveal data-reveal-delay="120" style="flex:1 1 420px;min-width:300px;">
-        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:22px;padding:24px;">
+        <div style="position:relative;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:22px;padding:24px;">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
             <div><div style="font-size:12px;color:#9bb0a4;">Noah · balance forecast</div><div style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:#fbfdf8;">QR 210</div></div>
             <div style="font-family:ui-monospace,monospace;font-size:10.5px;color:#C2683B;background:rgba(194,104,59,0.14);border:1px solid rgba(194,104,59,0.3);padding:5px 10px;border-radius:20px;">dips Thu</div>
@@ -227,6 +256,24 @@ body{margin:0;}
           </svg>
           <div style="height:8px;border-radius:6px;margin-top:6px;background:linear-gradient(90deg,#2BA86A,#E3C26B 34%,#C2683B 48%,#D98A4A 62%,#178A4F 82%,#0f6b3f);"></div>
           <div style="display:flex;justify-content:space-between;font-family:ui-monospace,monospace;font-size:10px;letter-spacing:0.08em;color:#7f9488;margin-top:8px;text-transform:uppercase;"><span>Growth</span><span>Caution</span><span>Near zero</span><span>Recover</span></div>
+          <div style="position:absolute;left:-6px;top:-64px;width:146px;animation:bzfloat2 6s ease-in-out infinite;">
+            <div style="background:#fff;border:1px solid rgba(15,30,22,0.06);border-radius:11px;padding:11px 12px;box-shadow:0 16px 36px rgba(0,0,0,0.32);">
+              <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+                <div style="width:20px;height:20px;border-radius:6px;background:rgba(194,104,59,0.12);display:flex;align-items:center;justify-content:center;flex:none;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M12 4l9 16H3L12 4z" stroke="#C2683B" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v4" stroke="#C2683B" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17.3" r="1.1" fill="#C2683B"/></svg></div>
+                <span style="font-family:ui-monospace,monospace;font-size:7.5px;letter-spacing:0.14em;color:#C2683B;text-transform:uppercase;font-weight:600;">Heads up</span>
+              </div>
+              <div style="font-size:10.5px;font-weight:700;line-height:1.3;color:#13211a;">Noah dips to QR 40 this Thursday.</div>
+            </div>
+          </div>
+          <div style="position:absolute;right:-44px;bottom:-66px;width:146px;animation:bzdrift 5.5s ease-in-out infinite;">
+            <div style="background:#fff;border:1px solid rgba(15,30,22,0.06);border-radius:11px;padding:11px 12px;box-shadow:0 16px 36px rgba(0,0,0,0.32);">
+              <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+                <div style="width:20px;height:20px;border-radius:6px;background:rgba(23,138,79,0.12);display:flex;align-items:center;justify-content:center;flex:none;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M4 15l4-4 3 3 6-7" stroke="#178A4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 7h4v4" stroke="#178A4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <span style="font-family:ui-monospace,monospace;font-size:7.5px;letter-spacing:0.14em;color:#178A4F;text-transform:uppercase;font-weight:600;">Recovers</span>
+              </div>
+              <div style="font-size:10.5px;font-weight:700;line-height:1.3;color:#13211a;">Back to QR 210 by Sunday.</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -238,33 +285,33 @@ body{margin:0;}
   <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,108px) clamp(20px,5vw,56px);">
     <div data-reveal style="max-width:640px;margin:0 0 clamp(36px,4vw,56px);">
       <div style="font-family:ui-monospace,monospace;font-size:12px;letter-spacing:0.2em;color:#9C7A2B;text-transform:uppercase;margin-bottom:16px;">What's inside</div>
-      <h2 style="font-family:'Marcellus',serif;font-weight:400;font-size:clamp(30px,3.6vw,46px);line-height:1.08;margin:0;">Every control a Root could want. Nothing a branch can break.</h2>
+      <h2 style="font-family:'Marcellus',serif;font-weight:400;font-size:clamp(30px,3.6vw,46px);line-height:1.08;margin:0;">Every control a Root could want. Nothing a Leaf can break.</h2>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:18px;">
       <div data-reveal data-reveal-delay="0" style="background:#fff;border:1px solid rgba(15,30,22,0.08);border-radius:18px;padding:26px 24px;">
         <div style="width:46px;height:46px;border-radius:13px;background:rgba(23,138,79,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:18px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 9a3 3 0 100-6 3 3 0 000 6zM6 21a3 3 0 100-6 3 3 0 000 6z" stroke="#178A4F" stroke-width="1.8"/><path d="M8.5 7.5L20 18M8.5 16.5L20 6" stroke="#178A4F" stroke-width="1.8" stroke-linecap="round"/></svg></div>
         <div style="font-family:'Marcellus',serif;font-size:19px;margin-bottom:9px;">Vendor pruning</div>
-        <div style="font-size:14px;line-height:1.6;color:#3c463f;text-wrap:pretty;">Allow or block any merchant per branch, instantly. Casinos off, groceries on — your rules.</div>
+        <div style="font-size:14px;line-height:1.6;color:#3c463f;text-wrap:pretty;">Allow or block any merchant per Leaf, instantly. Gaming off, or groceries on — it's all by your rules.</div>
       </div>
       <div data-reveal data-reveal-delay="70" style="background:#fff;border:1px solid rgba(15,30,22,0.08);border-radius:18px;padding:26px 24px;">
         <div style="width:46px;height:46px;border-radius:13px;background:rgba(23,138,79,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:18px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#178A4F" stroke-width="1.8"/><path d="M12 7v5l3 2" stroke="#178A4F" stroke-width="1.8" stroke-linecap="round"/></svg></div>
         <div style="font-family:'Marcellus',serif;font-size:19px;margin-bottom:9px;">Spend limits</div>
-        <div style="font-size:14px;line-height:1.6;color:#3c463f;text-wrap:pretty;">Set a weekly cap per branch. Bonzai stops the card at the line — no overdraft, no surprises.</div>
+        <div style="font-size:14px;line-height:1.6;color:#3c463f;text-wrap:pretty;">Set a periodic limit per Leaf. Bonzai stops the card at the line, with no overdraft and no surprises.</div>
       </div>
       <div data-reveal data-reveal-delay="140" style="background:#fff;border:1px solid rgba(15,30,22,0.08);border-radius:18px;padding:26px 24px;">
         <div style="width:46px;height:46px;border-radius:13px;background:rgba(23,138,79,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:18px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2.5" stroke="#178A4F" stroke-width="1.8"/><path d="M3 10h18" stroke="#178A4F" stroke-width="1.8"/></svg></div>
         <div style="font-family:'Marcellus',serif;font-size:19px;margin-bottom:9px;">Instant cards</div>
-        <div style="font-size:14px;line-height:1.6;color:#3c463f;text-wrap:pretty;">Issue a virtual card in sixty seconds, add it to Apple or Google Pay, freeze it with one tap.</div>
+        <div style="font-size:14px;line-height:1.6;color:#3c463f;text-wrap:pretty;">Issue a virtual card quickly, add it to Apple or Google Pay, instantly freeze it with one tap.</div>
       </div>
       <div data-reveal data-reveal-delay="0" style="background:#fff;border:1px solid rgba(15,30,22,0.08);border-radius:18px;padding:26px 24px;">
         <div style="width:46px;height:46px;border-radius:13px;background:rgba(23,138,79,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:18px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="5" y="3" width="14" height="18" rx="2" stroke="#178A4F" stroke-width="1.8"/><path d="M8 8h8M8 12h8M8 16h5" stroke="#178A4F" stroke-width="1.8" stroke-linecap="round"/></svg></div>
         <div style="font-family:'Marcellus',serif;font-size:19px;margin-bottom:9px;">Receipt OCR</div>
-        <div style="font-size:14px;line-height:1.6;color:#3c463f;text-wrap:pretty;">Snap a receipt and Bonzai reads it — line items, vendor, total — and files it against the transaction.</div>
+        <div style="font-size:14px;line-height:1.6;color:#3c463f;text-wrap:pretty;">Snap a receipt and Bonzai reads it, capturing line items, vendor, and total, then files it against the transaction.</div>
       </div>
       <div data-reveal data-reveal-delay="70" style="background:#fff;border:1px solid rgba(15,30,22,0.08);border-radius:18px;padding:26px 24px;">
         <div style="width:46px;height:46px;border-radius:13px;background:rgba(23,138,79,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:18px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0l-4-4m4 4l4-4" stroke="#178A4F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 19h14" stroke="#178A4F" stroke-width="1.8" stroke-linecap="round"/></svg></div>
         <div style="font-family:'Marcellus',serif;font-size:19px;margin-bottom:9px;">Requests &amp; approvals</div>
-        <div style="font-size:14px;line-height:1.6;color:#3c463f;text-wrap:pretty;">Branches ask for more funds or a new vendor; Root approves or declines from the home dashboard.</div>
+        <div style="font-size:14px;line-height:1.6;color:#3c463f;text-wrap:pretty;">Leaves ask for more funds or a new vendor; Root approves or declines from the home dashboard.</div>
       </div>
       <div data-reveal data-reveal-delay="140" style="background:#fff;border:1px solid rgba(15,30,22,0.08);border-radius:18px;padding:26px 24px;">
         <div style="width:46px;height:46px;border-radius:13px;background:rgba(23,138,79,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:18px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 4l9 8-9 8" stroke="#178A4F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 8c2 1.3 3 2.4 3 4s-1 2.7-3 4" stroke="#178A4F" stroke-width="1.8" stroke-linecap="round"/></svg></div>
@@ -280,7 +327,7 @@ body{margin:0;}
   <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,108px) clamp(20px,5vw,56px);display:flex;flex-wrap:wrap;gap:clamp(36px,5vw,68px);align-items:flex-start;">
     <div data-reveal style="flex:1 1 360px;min-width:300px;">
       <div style="font-family:ui-monospace,monospace;font-size:12px;letter-spacing:0.2em;color:#9C7A2B;text-transform:uppercase;margin-bottom:16px;">Security &amp; trust</div>
-      <h2 style="font-family:'Marcellus',serif;font-weight:400;font-size:clamp(30px,3.6vw,46px);line-height:1.1;margin:0 0 16px;">Built like a bank. Read like a letter.</h2>
+      <h2 style="font-family:'Marcellus',serif;font-weight:400;font-size:clamp(30px,3.6vw,46px);line-height:1.1;margin:0 0 16px;">Regulated partners. Real encryption. Zero shortcuts.</h2>
       <p style="font-size:16.5px;line-height:1.65;color:#3c463f;margin:0 0 22px;text-wrap:pretty;">We partner with regulated institutions and never touch what we don't need to. Your bank credentials stay with your bank.</p>
       <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(23,138,79,0.08);border:1px solid rgba(23,138,79,0.2);border-radius:13px;padding:12px 16px;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z" stroke="#178A4F" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#178A4F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -312,6 +359,70 @@ body{margin:0;}
   </div>
 </section>
 
+<!-- ===================== ABOUT US / TEAM ===================== -->
+<section id="about" style="scroll-margin-top:80px;background:rgba(255,255,255,0.45);border-top:1px solid rgba(15,30,22,0.07);border-bottom:1px solid rgba(15,30,22,0.07);">
+  <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,108px) clamp(20px,5vw,56px);">
+    <div data-reveal style="margin:0 0 clamp(36px,4vw,52px);">
+      <div style="font-family:ui-monospace,monospace;font-size:12px;letter-spacing:0.2em;color:#9C7A2B;text-transform:uppercase;margin-bottom:14px;">About Us</div>
+      <h2 style="font-family:'Marcellus',serif;font-weight:400;font-size:clamp(32px,4vw,52px);line-height:1.04;margin:0;">Our Founding Team</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;">
+
+      <div data-reveal style="background:linear-gradient(165deg,#16261c,#10201a);border-radius:22px;padding:18px 18px 24px;color:#eef2ed;">
+        <img src="uploads/Taha.jpg" alt="Syed Taha Ali" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="display:block;width:100%;height:240px;object-fit:cover;object-position:50% 30%;border-radius:14px;margin-bottom:20px;">
+        <div style="display:none;width:100%;height:240px;border-radius:14px;margin-bottom:20px;align-items:center;justify-content:center;background:linear-gradient(140deg,#178A4F,#0f6b3f);color:#fff;font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:600;">TA</div>
+        <div style="padding:0 4px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+            <div style="font-size:21px;font-weight:700;color:#fbfdf8;letter-spacing:-0.01em;">Syed Taha Ali</div>
+            <a href="https://www.linkedin.com/in/syed-taha-ali/" target="_blank" rel="noopener" aria-label="Syed Taha Ali on LinkedIn" style="flex:none;width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(127,209,163,0.12);border:1px solid rgba(127,209,163,0.32);text-decoration:none;">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="#7fd1a3"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zM8.34 18.34V9.93H5.55v8.41h2.79zM6.94 8.69a1.62 1.62 0 100-3.24 1.62 1.62 0 000 3.24zM18.45 18.34v-4.61c0-2.46-.53-4.36-3.41-4.36-1.38 0-2.31.76-2.69 1.48h-.04V9.93h-2.68v8.41h2.79v-4.16c0-1.1.21-2.16 1.57-2.16 1.34 0 1.36 1.25 1.36 2.23v4.09h2.79z"/></svg>
+            </a>
+          </div>
+          <div style="font-size:14px;font-weight:600;color:#7fd1a3;margin-top:4px;">CEO &amp; CTO</div>
+          <div style="font-size:13px;line-height:1.5;color:#a9b6ad;margin-top:16px;">BSc (Hons) Computer Science · 1st<br>Liverpool John Moores University</div>
+          <div style="font-size:13px;line-height:1.5;color:#a9b6ad;margin-top:14px;">Vision · Strategy · Architecture · Product · Stakeholder Relations</div>
+          <div style="font-size:13px;color:#7f9488;margin-top:14px;font-family:ui-monospace,monospace;letter-spacing:0.04em;">Doha, Qatar</div>
+        </div>
+      </div>
+
+      <div data-reveal data-reveal-delay="90" style="background:linear-gradient(165deg,#16261c,#10201a);border-radius:22px;padding:18px 18px 24px;color:#eef2ed;">
+        <img src="uploads/Tajwaar%20Shafiq%20-%20Resized.jpg" alt="Tajwaar Shafiq" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="display:block;width:100%;height:240px;object-fit:cover;object-position:50% 30%;border-radius:14px;margin-bottom:20px;">
+        <div style="display:none;width:100%;height:240px;border-radius:14px;margin-bottom:20px;align-items:center;justify-content:center;background:linear-gradient(140deg,#178A4F,#0f6b3f);color:#fff;font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:600;">TS</div>
+        <div style="padding:0 4px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+            <div style="font-size:21px;font-weight:700;color:#fbfdf8;letter-spacing:-0.01em;">Tajwaar Shafiq</div>
+            <a href="https://www.linkedin.com/in/tajwaarshafiq" target="_blank" rel="noopener" aria-label="Tajwaar Shafiq on LinkedIn" style="flex:none;width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(127,209,163,0.12);border:1px solid rgba(127,209,163,0.32);text-decoration:none;">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="#7fd1a3"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zM8.34 18.34V9.93H5.55v8.41h2.79zM6.94 8.69a1.62 1.62 0 100-3.24 1.62 1.62 0 000 3.24zM18.45 18.34v-4.61c0-2.46-.53-4.36-3.41-4.36-1.38 0-2.31.76-2.69 1.48h-.04V9.93h-2.68v8.41h2.79v-4.16c0-1.1.21-2.16 1.57-2.16 1.34 0 1.36 1.25 1.36 2.23v4.09h2.79z"/></svg>
+            </a>
+          </div>
+          <div style="font-size:14px;font-weight:600;color:#7fd1a3;margin-top:4px;">Head of Engineering</div>
+          <div style="font-size:13px;line-height:1.5;color:#a9b6ad;margin-top:16px;">HBSc Computer Science · Specialist<br>University of Toronto</div>
+          <div style="font-size:13px;line-height:1.5;color:#a9b6ad;margin-top:14px;">Software Engineering · System Design · AI Development · Delivery</div>
+          <div style="font-size:13px;color:#7f9488;margin-top:14px;font-family:ui-monospace,monospace;letter-spacing:0.04em;">Doha, Qatar</div>
+        </div>
+      </div>
+
+      <div data-reveal data-reveal-delay="180" style="background:linear-gradient(165deg,#16261c,#10201a);border-radius:22px;padding:18px 18px 24px;color:#eef2ed;">
+        <img src="uploads/Farhan%20Feroz%20-%20Resized.jpg" alt="Mohamed Farhan Feroz" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="display:block;width:100%;height:240px;object-fit:cover;object-position:50% 28%;border-radius:14px;margin-bottom:20px;">
+        <div style="display:none;width:100%;height:240px;border-radius:14px;margin-bottom:20px;align-items:center;justify-content:center;background:linear-gradient(140deg,#178A4F,#0f6b3f);color:#fff;font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:600;">MF</div>
+        <div style="padding:0 4px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+            <div style="font-size:21px;font-weight:700;color:#fbfdf8;letter-spacing:-0.01em;">Mohamed Farhan Feroz</div>
+            <a href="http://linkedin.com/in/moferoz" target="_blank" rel="noopener" aria-label="Mohamed Farhan Feroz on LinkedIn" style="flex:none;width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(127,209,163,0.12);border:1px solid rgba(127,209,163,0.32);text-decoration:none;">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="#7fd1a3"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zM8.34 18.34V9.93H5.55v8.41h2.79zM6.94 8.69a1.62 1.62 0 100-3.24 1.62 1.62 0 000 3.24zM18.45 18.34v-4.61c0-2.46-.53-4.36-3.41-4.36-1.38 0-2.31.76-2.69 1.48h-.04V9.93h-2.68v8.41h2.79v-4.16c0-1.1.21-2.16 1.57-2.16 1.34 0 1.36 1.25 1.36 2.23v4.09h2.79z"/></svg>
+            </a>
+          </div>
+          <div style="font-size:14px;font-weight:600;color:#7fd1a3;margin-top:4px;">Head of Operations</div>
+          <div style="font-size:13px;line-height:1.5;color:#a9b6ad;margin-top:16px;">BSc Industrial Engineering<br>California Polytechnic State University</div>
+          <div style="font-size:13px;line-height:1.5;color:#a9b6ad;margin-top:14px;">Operations · Business Development · Partnerships</div>
+          <div style="font-size:13px;color:#7f9488;margin-top:14px;font-family:ui-monospace,monospace;letter-spacing:0.04em;">Doha, Qatar</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ===================== WAITLIST CTA ===================== -->
 <section id="waitlist" style="scroll-margin-top:80px;">
   <div style="max-width:1180px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(20px,5vw,56px);">
@@ -320,19 +431,15 @@ body{margin:0;}
       <div style="position:absolute;left:-60px;bottom:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(43,169,104,0.18),transparent 68%);"></div>
       <div style="position:relative;max-width:560px;margin:0 auto;">
         <div style="width:60px;height:60px;border-radius:17px;background:linear-gradient(140deg,#178A4F 0%,#7fbf7e 42%,#E3C26B 72%,#B58B36 100%);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 22V11" stroke="#0c1a13" stroke-width="2.4" stroke-linecap="round"/><path d="M12 13C9 13 6.5 11 6 8" stroke="#0c1a13" stroke-width="2.4" stroke-linecap="round"/><path d="M12 11C15 11 17.5 8.5 18 5.5" stroke="#0c1a13" stroke-width="2.4" stroke-linecap="round"/><circle cx="5" cy="7" r="2" fill="#0c1a13"/><circle cx="19" cy="4.5" r="2" fill="#0c1a13"/><circle cx="12" cy="22" r="2" fill="#0c1a13"/></svg>
+          <img src="uploads/logo_dark.png" alt="Bonzai" style="width:38px;height:auto;display:block;">
         </div>
         <h2 style="font-family:'Libre Caslon Display',serif;font-weight:400;font-size:clamp(30px,3.8vw,46px);line-height:1.08;margin:0 0 14px;color:#fbfdf8;">Be first to plant your Root.</h2>
-        <p style="font-size:16.5px;line-height:1.6;color:#c2cec6;margin:0 0 28px;text-wrap:pretty;">Join the early-access list. We're onboarding founding families across the GCC through 2026.</p>
-        <div id="bz-waitlist-done" style="display:none;align-items:center;gap:12px;background:rgba(127,209,163,0.14);border:1px solid rgba(127,209,163,0.4);border-radius:16px;padding:16px 22px;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5 11-11" stroke="#7fd1a3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span style="font-size:15.5px;color:#eef2ed;">You're on the list. We'll be in touch soon.</span>
-        </div>
-        <form id="bz-waitlist-form" style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:480px;margin:0 auto;">
-          <input type="email" required placeholder="you@family.com" style="flex:1 1 240px;min-width:200px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.18);border-radius:14px;padding:15px 18px;color:#fff;font-family:'DM Sans';font-size:15px;outline:none;"/>
-          <button type="submit" style="background:#E3C26B;color:#1a0f08;border:none;font-family:'DM Sans';font-size:15.5px;font-weight:600;padding:15px 26px;border-radius:14px;cursor:pointer;white-space:nowrap;">Request access</button>
-        </form>
-        <div id="bz-waitlist-note" style="font-size:12.5px;color:#7f9488;margin-top:14px;">No spam. One note when your invite is ready.</div>
+        <p style="font-size:16.5px;line-height:1.6;color:#c2cec6;margin:0 0 28px;text-wrap:pretty;">Contact us and join the early-access list. We're onboarding founding members across Qatar as early as Q4 2026.</p>
+        <a href="mailto:farhan.feroz@bonzai-card.com" style="display:inline-flex;align-items:center;gap:11px;background:#E3C26B;color:#1a0f08;text-decoration:none;font-size:15.5px;font-weight:600;padding:15px 26px;border-radius:14px;box-shadow:0 14px 30px rgba(227,194,107,0.24);">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="#1a0f08" stroke-width="2"/><path d="M4 7l8 6 8-6" stroke="#1a0f08" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Email us
+        </a>
+        <div style="font-size:13.5px;color:#9bb0a4;margin-top:16px;font-family:ui-monospace,monospace;letter-spacing:0.02em;">farhan.feroz@bonzai-card.com</div>
       </div>
     </div>
   </div>
@@ -351,14 +458,14 @@ body{margin:0;}
           <span style="display:flex;align-items:center;gap:14px;"><span style="font-family:ui-monospace,monospace;font-size:12px;color:#9C7A2B;">01</span><span style="font-size:16.5px;font-weight:600;color:#13211a;">What is a Root account?</span></span>
           <span data-faq-plus style="font-size:22px;color:#178A4F;line-height:1;flex:none;transition:transform .25s;transform:rotate(45deg);">+</span>
         </button>
-        <div data-faq-ans style="display:block;padding:0 22px 22px 56px;font-size:14.5px;line-height:1.65;color:#3c463f;text-wrap:pretty;">The Root is the parent account — the trunk all family money grows from. It holds the balance, issues branch cards, sets limits and vendor rules, and approves requests. One adult typically owns the Root.</div>
+        <div data-faq-ans style="display:block;padding:0 22px 22px 56px;font-size:14.5px;line-height:1.65;color:#3c463f;text-wrap:pretty;">The Root is the head account — the trunk all your money is rooted in. It issues Leaf cards, sets their limits, and approves their requests. Everything goes in and out through here, with one owner typically steering the wheel.</div>
       </div>
       <div data-faq data-open="false" style="background:#fff;border:1px solid rgba(15,30,22,0.08);border-radius:16px;overflow:hidden;">
         <button data-faq-btn style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;background:none;border:none;padding:20px 22px;cursor:pointer;text-align:left;font-family:'DM Sans';">
-          <span style="display:flex;align-items:center;gap:14px;"><span style="font-family:ui-monospace,monospace;font-size:12px;color:#9C7A2B;">02</span><span style="font-size:16.5px;font-weight:600;color:#13211a;">What’s the difference between a Branch and a Leaf?</span></span>
+          <span style="display:flex;align-items:center;gap:14px;"><span style="font-family:ui-monospace,monospace;font-size:12px;color:#9C7A2B;">02</span><span style="font-size:16.5px;font-weight:600;color:#13211a;">What's the difference between a Root and a Leaf?</span></span>
           <span data-faq-plus style="font-size:22px;color:#178A4F;line-height:1;flex:none;transition:transform .25s;transform:rotate(0deg);">+</span>
         </button>
-        <div data-faq-ans style="display:none;padding:0 22px 22px 56px;font-size:14.5px;line-height:1.65;color:#3c463f;text-wrap:pretty;">A Branch is a sub-account under your Root, usually for a child or family member, with its own controlled card. A Leaf is an individual spend — every transaction a branch makes. Bonzai keeps every leaf in view of the Root.</div>
+        <div data-faq-ans style="display:none;padding:0 22px 22px 56px;font-size:14.5px;line-height:1.65;color:#3c463f;text-wrap:pretty;">A Leaf is a sub-account under your Root with its own card, for an employee, family member, or dependent.</div>
       </div>
       <div data-faq data-open="false" style="background:#fff;border:1px solid rgba(15,30,22,0.08);border-radius:16px;overflow:hidden;">
         <button data-faq-btn style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;background:none;border:none;padding:20px 22px;cursor:pointer;text-align:left;font-family:'DM Sans';">
@@ -372,14 +479,14 @@ body{margin:0;}
           <span style="display:flex;align-items:center;gap:14px;"><span style="font-family:ui-monospace,monospace;font-size:12px;color:#9C7A2B;">04</span><span style="font-size:16.5px;font-weight:600;color:#13211a;">What does Bonzai cost?</span></span>
           <span data-faq-plus style="font-size:22px;color:#178A4F;line-height:1;flex:none;transition:transform .25s;transform:rotate(0deg);">+</span>
         </button>
-        <div data-faq-ans style="display:none;padding:0 22px 22px 56px;font-size:14.5px;line-height:1.65;color:#3c463f;text-wrap:pretty;">Pricing for founding families will be shared with your early-access invite. The concept is built around a simple per-Root subscription with unlimited branch cards — no per-card fees and no interest products.</div>
+        <div data-faq-ans style="display:none;padding:0 22px 22px 56px;font-size:14.5px;line-height:1.65;color:#3c463f;text-wrap:pretty;">Pricing for founding members will be shared with early-access invites.</div>
       </div>
       <div data-faq data-open="false" style="background:#fff;border:1px solid rgba(15,30,22,0.08);border-radius:16px;overflow:hidden;">
         <button data-faq-btn style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;background:none;border:none;padding:20px 22px;cursor:pointer;text-align:left;font-family:'DM Sans';">
           <span style="display:flex;align-items:center;gap:14px;"><span style="font-family:ui-monospace,monospace;font-size:12px;color:#9C7A2B;">05</span><span style="font-size:16.5px;font-weight:600;color:#13211a;">Which regions are supported at launch?</span></span>
           <span data-faq-plus style="font-size:22px;color:#178A4F;line-height:1;flex:none;transition:transform .25s;transform:rotate(0deg);">+</span>
         </button>
-        <div data-faq-ans style="display:none;padding:0 22px 22px 56px;font-size:14.5px;line-height:1.65;color:#3c463f;text-wrap:pretty;">We are onboarding founding families across the GCC through 2026, with Qatar first (balances shown in Qatari Riyal). Other markets open in waves as regulated partners come online.</div>
+        <div data-faq-ans style="display:none;padding:0 22px 22px 56px;font-size:14.5px;line-height:1.65;color:#3c463f;text-wrap:pretty;">We are onboarding members across Qatar as early as Q4 2026. Further expansions will be shared before soft launches.</div>
       </div>
       <div data-faq data-open="false" style="background:#fff;border:1px solid rgba(15,30,22,0.08);border-radius:16px;overflow:hidden;">
         <button data-faq-btn style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;background:none;border:none;padding:20px 22px;cursor:pointer;text-align:left;font-family:'DM Sans';">
@@ -399,11 +506,11 @@ body{margin:0;}
       <div style="flex:1 1 260px;min-width:240px;">
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
           <div style="width:34px;height:34px;border-radius:9px;background:linear-gradient(140deg,#178A4F 0%,#7fbf7e 42%,#E3C26B 72%,#B58B36 100%);display:flex;align-items:center;justify-content:center;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 22V11" stroke="#0c1a13" stroke-width="2.4" stroke-linecap="round"/><path d="M12 13C9 13 6.5 11 6 8" stroke="#0c1a13" stroke-width="2.4" stroke-linecap="round"/><path d="M12 11C15 11 17.5 8.5 18 5.5" stroke="#0c1a13" stroke-width="2.4" stroke-linecap="round"/><circle cx="5" cy="7" r="2" fill="#0c1a13"/><circle cx="19" cy="4.5" r="2" fill="#0c1a13"/><circle cx="12" cy="22" r="2" fill="#0c1a13"/></svg>
+            <img src="uploads/logo_dark.png" alt="Bonzai" style="width:23px;height:auto;display:block;">
           </div>
-          <span style="font-weight:600;font-size:19px;color:#fbfdf8;">Bonzai</span>
+          <span style="font-family:'Poppins',sans-serif;font-weight:300;font-size:19px;text-transform:lowercase;letter-spacing:0.25em;color:#fbfdf8;">Bonzai</span>
         </div>
-        <p style="font-size:13.5px;line-height:1.6;color:#8f9d92;max-width:280px;text-wrap:pretty;">Private family banking that grows branch by branch. A concept by the Bonzai team.</p>
+        <p style="font-size:13.5px;line-height:1.6;color:#8f9d92;max-width:280px;text-wrap:pretty;">Controlled spending that grows branch by branch. A concept by the Bonzai team.</p>
       </div>
       <div style="display:flex;gap:56px;flex-wrap:wrap;">
         <div>
@@ -413,6 +520,7 @@ body{margin:0;}
             <a href="#ai" style="color:#c2cec6;text-decoration:none;">AI Insights</a>
             <a href="#features" style="color:#c2cec6;text-decoration:none;">Features</a>
             <a href="#security" style="color:#c2cec6;text-decoration:none;">Security</a>
+            <a href="#about" style="color:#c2cec6;text-decoration:none;">About Us</a>
           </div>
         </div>
         <div>
@@ -421,7 +529,7 @@ body{margin:0;}
             <a href="#faq" style="color:#c2cec6;text-decoration:none;">FAQ</a>
             <a href="#waitlist" style="color:#c2cec6;text-decoration:none;">Waitlist</a>
             <a href="#top" style="color:#c2cec6;text-decoration:none;">Press kit</a>
-            <a href="#top" style="color:#c2cec6;text-decoration:none;">Contact</a>
+            <a href="mailto:farhan.feroz@bonzai-card.com" style="color:#c2cec6;text-decoration:none;">Contact</a>
           </div>
         </div>
       </div>
@@ -540,20 +648,41 @@ body{margin:0;}
     });
   }
 
-  function initWaitlist() {
-    var form = document.getElementById('bz-waitlist-form');
-    var done = document.getElementById('bz-waitlist-done');
-    var note = document.getElementById('bz-waitlist-note');
-    if (!form) return;
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      form.style.display = 'none';
-      if (note) note.style.display = 'none';
-      if (done) done.style.display = 'inline-flex';
+  function initNav() {
+    var burger = document.getElementById('bz-burger');
+    var menu = document.getElementById('bz-menu');
+    if (!burger || !menu) return;
+
+    function closeMenu() {
+      menu.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Open menu');
+    }
+    function openMenu() {
+      menu.classList.add('is-open');
+      burger.setAttribute('aria-expanded', 'true');
+      burger.setAttribute('aria-label', 'Close menu');
+    }
+
+    burger.addEventListener('click', function () {
+      if (menu.classList.contains('is-open')) closeMenu(); else openMenu();
     });
+    menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+    document.addEventListener('click', function (e) {
+      if (menu.contains(e.target) || burger.contains(e.target)) return;
+      closeMenu();
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+
+    // Keep the breakpoint in sync with the CSS media query: if the window
+    // grows past it, make sure a left-open menu is closed.
+    var mq = window.matchMedia('(max-width:980px)');
+    var onChange = function () { if (!mq.matches) closeMenu(); };
+    if (mq.addEventListener) mq.addEventListener('change', onChange);
+    else if (mq.addListener) mq.addListener(onChange);
   }
 
-  function init() { runMotion(); initFaq(); initWaitlist(); }
+  function init() { runMotion(); initFaq(); initNav(); }
 
   if (document.readyState !== 'loading') init();
   else document.addEventListener('DOMContentLoaded', init);
