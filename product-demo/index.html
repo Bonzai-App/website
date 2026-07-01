@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="/uploads/logo_color.png">
+<link rel="apple-touch-icon" href="/uploads/logo_color.png">
+<title>bonzai — Product Demo</title>
+<meta name="description" content="Watch the Bonzai product demo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;}
+::selection{background:rgba(23,138,79,0.18);}
+::-webkit-scrollbar{height:9px;width:9px;}::-webkit-scrollbar-thumb{background:rgba(20,30,25,.16);border-radius:9px;}::-webkit-scrollbar-track{background:transparent;}
+</style>
+</head>
+<body>
+
+<div style="background:#e6e9e4;font-family:'DM Sans',sans-serif;color:#13211a;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden;">
+
+<!-- ===================== NAV ===================== -->
+<header style="position:sticky;top:0;z-index:50;backdrop-filter:saturate(140%) blur(14px);background:rgba(230,233,228,0.78);border-bottom:1px solid rgba(15,30,22,0.07);">
+  <div style="max-width:1180px;margin:0 auto;width:100%;padding:14px clamp(20px,5vw,56px);display:flex;align-items:center;justify-content:space-between;gap:20px;">
+    <a href="/" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;">
+      <div style="width:34px;height:34px;border-radius:9px;background:linear-gradient(140deg,#178A4F 0%,#7fbf7e 42%,#E3C26B 72%,#B58B36 100%);display:flex;align-items:center;justify-content:center;flex:none;">
+        <img src="/uploads/logo_dark.png" alt="Bonzai" style="width:23px;height:auto;display:block;">
+      </div>
+      <span style="font-family:'Poppins',sans-serif;font-weight:300;font-size:19px;text-transform:lowercase;letter-spacing:0.25em;">Bonzai</span>
+    </a>
+    <a href="/" style="text-decoration:none;font-size:14px;color:#3c463f;display:inline-flex;align-items:center;gap:8px;">
+      <span style="font-size:17px;line-height:1;">&larr;</span> Back to site
+    </a>
+  </div>
+</header>
+
+<!-- ===================== EMBED ===================== -->
+<section style="flex:1;display:flex;align-items:center;justify-content:center;">
+  <div style="max-width:1000px;width:100%;margin:0 auto;padding:clamp(40px,6vw,72px) clamp(20px,5vw,56px);">
+    <div style="text-align:center;margin:0 0 clamp(28px,4vw,40px);">
+      <div style="font-family:ui-monospace,monospace;font-size:12px;letter-spacing:0.2em;color:#9C7A2B;text-transform:uppercase;margin-bottom:14px;">Video</div>
+      <h2 style="font-family:'Marcellus',serif;font-weight:400;font-size:clamp(32px,4vw,52px);line-height:1.04;margin:0;">Product Demo</h2>
+    </div>
+
+    <div style="background:linear-gradient(165deg,#16261c,#10201a);border-radius:22px;padding:16px;box-shadow:0 30px 70px rgba(15,31,23,0.22);">
+      <div style="position:relative;width:100%;padding-top:56.25%;border-radius:14px;overflow:hidden;background:#000;">
+        <iframe src="https://www.youtube.com/embed/9AXX1CwQks0" title="Bonzai Product Demo Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer style="background:linear-gradient(165deg,#0f1f17,#16261c);color:#c2cec6;">
+  <div style="max-width:1180px;margin:0 auto;padding:clamp(44px,5vw,68px) clamp(20px,5vw,56px) 30px;">
+    <div style="display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:flex-start;">
+      <div style="flex:1 1 260px;min-width:240px;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+          <div style="width:34px;height:34px;border-radius:9px;background:linear-gradient(140deg,#178A4F 0%,#7fbf7e 42%,#E3C26B 72%,#B58B36 100%);display:flex;align-items:center;justify-content:center;">
+            <img src="/uploads/logo_dark.png" alt="Bonzai" style="width:23px;height:auto;display:block;">
+          </div>
+          <span style="font-family:'Poppins',sans-serif;font-weight:300;font-size:19px;text-transform:lowercase;letter-spacing:0.25em;color:#fbfdf8;">Bonzai</span>
+        </div>
+        <p style="font-size:13.5px;line-height:1.6;color:#8f9d92;max-width:280px;text-wrap:pretty;">Controlled spending that grows branch by branch. A concept by the Bonzai team.</p>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.1);margin-top:40px;padding-top:22px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:12.5px;color:#7f9488;">
+      <span>© 2026 Bonzai · Concept v1 · Currency shown in Qatari Riyal (QR)</span>
+      <span>Not a bank. Banking services provided by regulated partners.</span>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+</body>
+</html>
