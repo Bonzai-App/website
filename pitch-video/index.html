@@ -47,10 +47,79 @@ body{margin:0;}
     </div>
 
     <div style="background:linear-gradient(165deg,#16261c,#10201a);border-radius:22px;padding:16px;box-shadow:0 30px 70px rgba(15,31,23,0.22);">
-      <div style="position:relative;width:100%;padding-top:56.25%;border-radius:14px;overflow:hidden;background:#000;">
-        <iframe src="https://www.youtube.com/embed/aHXKYE0wVFo" title="Bonzai Pitch Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;"></iframe>
+      <div id="bz-embed" style="position:relative;width:100%;padding-top:56.25%;border-radius:14px;overflow:hidden;background:#000;">
+        <!-- facade poster: shown on load, plays inline on click (no embed = no YouTube error on load) -->
+        <a id="bz-poster" href="https://www.youtube.com/watch?v=aHXKYE0wVFo" target="_blank" rel="noopener" aria-label="Play the Bonzai Pitch Video" style="position:absolute;inset:0;display:block;text-decoration:none;background:#000 center/cover no-repeat url('https://i.ytimg.com/vi/aHXKYE0wVFo/maxresdefault.jpg');">
+          <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,31,23,0.26),rgba(15,31,23,0.66));"></span>
+          <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+            <span style="width:76px;height:54px;border-radius:15px;background:#ff0000;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 34px rgba(0,0,0,0.5);">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </span>
+        </a>
+        <!-- error fallback: shown only if the embed genuinely can't play -->
+        <a id="bz-fallback" href="https://www.youtube.com/watch?v=aHXKYE0wVFo" target="_blank" rel="noopener" style="display:none;position:absolute;inset:0;text-decoration:none;background:#000 center/cover no-repeat url('https://i.ytimg.com/vi/aHXKYE0wVFo/hqdefault.jpg');">
+          <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,31,23,0.36),rgba(15,31,23,0.80));"></span>
+          <span style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:15px;text-align:center;padding:24px;">
+            <span style="color:#c2cec6;font-size:13.5px;">This video can't be played here.</span>
+            <span style="display:inline-flex;align-items:center;gap:8px;color:#fff;font-size:14px;font-weight:600;background:#ff0000;padding:11px 18px;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,0.4);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg> Watch on YouTube
+            </span>
+          </span>
+        </a>
       </div>
     </div>
+    <script>
+      // Facade embed: never loads the YouTube player on page load, so YouTube's
+      // error image can't appear. Click plays inline via the IFrame API; if the
+      // video can't be embedded (owner disabled it, region block, API blocked),
+      // we show a branded "Watch on YouTube" card instead.
+      (function () {
+        var VIDEO_ID = 'aHXKYE0wVFo';
+        var box = document.getElementById('bz-embed');
+        var poster = document.getElementById('bz-poster');
+        var fallback = document.getElementById('bz-fallback');
+        var probe = new Image();
+        probe.onerror = function () { poster.style.backgroundImage = "url('https://i.ytimg.com/vi/" + VIDEO_ID + "/hqdefault.jpg')"; };
+        probe.src = 'https://i.ytimg.com/vi/' + VIDEO_ID + '/maxresdefault.jpg';
+        var launched = false;
+        function fail() {
+          var pl = document.getElementById('bz-player'); if (pl && pl.parentNode) pl.parentNode.removeChild(pl);
+          poster.style.display = 'none';
+          fallback.style.display = 'block';
+        }
+        function boot() {
+          // Build the iframe ourselves so we can set referrerpolicy — without a
+          // referrer YouTube rejects the embed with "Error 153". Playback does
+          // not depend on the JS API, so the video plays even if the API is blocked.
+          var frame = document.createElement('iframe');
+          frame.id = 'bz-player';
+          frame.title = 'Bonzai Pitch Video';
+          frame.src = 'https://www.youtube.com/embed/' + VIDEO_ID +
+            '?enablejsapi=1&autoplay=1&rel=0&modestbranding=1&playsinline=1&origin=' +
+            encodeURIComponent(location.origin);
+          frame.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+          frame.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+          frame.setAttribute('allowfullscreen', '');
+          frame.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none;';
+          box.appendChild(frame);
+        }
+        function attachPlayer() { try { new YT.Player('bz-player', { events: { onError: fail } }); } catch (e) {} }
+        poster.addEventListener('click', function (e) {
+          e.preventDefault();
+          if (launched) return; launched = true;
+          poster.style.display = 'none';
+          boot();
+          // Attach the IFrame API only for graceful-fallback detection; the plain
+          // iframe above already plays on its own.
+          if (window.YT && window.YT.Player) { attachPlayer(); return; }
+          window.onYouTubeIframeAPIReady = attachPlayer;
+          var tag = document.createElement('script');
+          tag.src = 'https://www.youtube.com/iframe_api';
+          document.head.appendChild(tag);
+        });
+      })();
+    </script>
   </div>
 </section>
 
